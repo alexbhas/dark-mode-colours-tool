@@ -39,10 +39,6 @@ let contrast = (l1, l2) => {
 
 }
 
-console.log(getLuminance(convertToRGB("#DBDEF1")[0], convertToRGB("#DBDEF1")[1], convertToRGB("#DBDEF1")[2]));
-console.log(getLuminance(convertToRGB("#DDDBF1")[0], convertToRGB("#DDDBF1")[1], convertToRGB("#DDDBF1")[2]));
-console.log(getLuminance(convertToRGB("#0044ff")[0], convertToRGB("#0044ff")[1], convertToRGB("#0044ff")[2]));
-
 function generate(){
 
 
@@ -83,14 +79,7 @@ function generate(){
       for (let g = 0; g < 256; g += 17) {
         for (let r = 0; r < 256; r += 17) {
           let luminance = getLuminance(r, g, b);
-          if(contrast(firstLum, luminance) >= 4.51 || contrast(secondLum, luminance) >= 4.51){
-            console.log("---")
-            console.log(r + " " + g + " " + b)
-            console.log("Light: " + contrast(firstLum, luminance));
-            console.log("Dark:" + contrast(secondLum, luminance));
-            console.log("---")
-          }
-          
+        
           if(contrast(firstLum, luminance) >= 4.51 && contrast(secondLum, luminance) >= 4.51){
             count++;
             addColor(r, g, b);
@@ -103,9 +92,6 @@ function generate(){
   } else{
     alert("Invalid HTML colour code");
   }
-  
-
-  
 
 }
 
