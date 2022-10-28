@@ -24,6 +24,8 @@ ul {
 }
 
 li {
+  border-style: solid;
+  border-color: #FFFFFF;
   border-radius: 4px;
   padding: 48px 16px 16px;
   list-style: none;
@@ -70,4 +72,8 @@ button:active{
 #inputs {
   display: table;
   margin: 0 auto; 
+}
+
+.highlightText{
+  background: #000000;
 }

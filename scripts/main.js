@@ -74,8 +74,11 @@ function generate(){
     //Add a color element to the grid
     let addColor = (r, g, b) => {
       let li = document.createElement('li');
-      li.innerHTML = `#${r.toString(16).padStart(2, '0')}${g.toString(16).padStart(2, '0')}${b.toString(16).padStart(2, '0')}<br/>
-    rgb(${r}, ${g}, ${b})`;
+      let label = document.createElement('label');
+      label.innerHTML = `#${r.toString(16).padStart(2, '0')}${g.toString(16).padStart(2, '0')}${b.toString(16).padStart(2, '0')}<br/>
+      rgb(${r}, ${g}, ${b})`;
+      label.style.backgroundColor = '#000000'
+      li.appendChild(label);
       li.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
       colors.appendChild(li);
     };
@@ -98,6 +101,8 @@ function generate(){
     
     //Incase add count element in future
     //Possibly change the text in the grid elements to have a background incase they match the colour
+    //Maybe leave the input text there instead of deleting them!
+    //Add a label under with: generated colours for color1 and color2 amount: # 
     //document.querySelector('#count').textContent = count;
   } else{
     alert("Invalid HTML colour code");
