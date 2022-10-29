@@ -1,3 +1,5 @@
+
+//Normalize
 let getChannel = (channel) => {
   let normalized = channel/255;
   if (normalized <= 0.03928) {
@@ -47,6 +49,11 @@ function generate(){
   //Remove prior grid
   let colors = document.querySelector('#colors');
   colors.innerHTML = "";
+
+  let countElement = document.querySelector('#count');
+  countElement.innerHTML =  "";
+
+
   
    //Get user input and check if valid
   let first = document.getElementById("firstcolour");
@@ -57,9 +64,6 @@ function generate(){
 
   let invalidF = /^#[0-9A-F]{6}$/i.test(firstColour);
   let invalidS = /^#[0-9A-F]{6}$/i.test(secondColour);
-
-  first.value = "";
-  second.value = "";
 
   if(invalidF == true && invalidS == true){
 
@@ -98,14 +102,21 @@ function generate(){
         }
       }
     }
+
+    countElement.innerHTML = "Found " + count + " colours that pass the contrast check for " + firstColour + " and " + secondColour + ".";
     
-    //Incase add count element in future
-    //Possibly change the text in the grid elements to have a background incase they match the colour
-    //Maybe leave the input text there instead of deleting them!
     //Add a label under with: generated colours for color1 and color2 amount: # 
-    //document.querySelector('#count').textContent = count;
+    
   } else{
-    alert("Invalid HTML colour code");
+    
+    if(invalidF == false){
+      alert("Invalid HTML colour code for first colour");
+      first.value = "";
+    }
+    if(invalidS == false){
+      alert("Invalid HTML colour code for second colour");
+      second.value = "";
+    }
   }
 
 }
