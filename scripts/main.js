@@ -108,13 +108,11 @@ function generate(){
     //Add a label under with: generated colours for color1 and color2 amount: # 
     
   } else{
-    
+    alert("Invalid HTML colour code");
     if(invalidF == false){
-      alert("Invalid HTML colour code for first colour");
       first.value = "";
     }
     if(invalidS == false){
-      alert("Invalid HTML colour code for second colour");
       second.value = "";
     }
   }
